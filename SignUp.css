@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@800&display=swap');
+:root{
+    --bg_purple:rgb(51, 0, 51);
+    --bg_blue:rgb(9, 0, 73);
+    --bg_red:rgb(107, 7, 7);
+    --bg_grey:rgba(32,32,46, 1);
+    --main_color:rgb(123, 58, 190);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Times New Roman', Times, serif;
+    width:100vw;
+    height: 100vh;
+    background: 
+    linear-gradient(215deg, var(--bg_purple), rgba(0, 0, 0, 0.4) 75%),
+    linear-gradient(135deg, var(--bg_blue), rgba(0, 0, 0, 0.4) 75%),
+    linear-gradient(360deg, var(--bg_red), rgba(0, 0, 0, 0.4) 75%);
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+.main-content{
+    display: grid;
+    grid-template-rows: [panel] 15% [content] auto;
+    width:70%;
+    height: 80%;
+    background: var(--bg_grey);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 4rem 1px;
+    border-radius:2rem;
+    padding: 0rem 2rem 1rem 2rem;
+    backdrop-filter: blur(5px);
+}
+.header{
+    border-right: 1px solid rgb(46, 46, 46);
+}
+.dwa{
+    margin-top: -1rem;
+    margin-left:-2rem;
+    font-family: 'Cairo Play', cursive;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px var(--main_color);
+}
+.logo-subtext{
+    font-size: 1.5rem;
+    color: var(--main_color);
+    font-family: 'Courier New';
+    font-weight: bold;
+    padding-left:60px;
+    margin-top:-25px;
+}

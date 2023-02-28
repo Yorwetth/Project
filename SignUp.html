@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- ikona google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> 
+
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+<link rel="stylesheet" href="SignUp.css">
+</head>
+<body>
+    <div class="main-content">
+        <section class="panel">
+            <header class="header">
+                <h1 class="dwa">Alpha-Mind</h1>
+                <p class="logo-subtext">Czysta wydajność</p>
+            </header>
+        </section>
+        <section class="content">
+            <div id="login-box">
+                <div class="left">
+                    <h1 id='status'>login</h1>
+                    <input type="text" id="email" name="email" placeholder="E-mail" />
+                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <input type="submit" id='login' name="login" value="Login" />
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyB7vDHyBRcjpnVzRvC6oYBv670s4CZUfMY",
+    authDomain: "autentykacja-485ce.firebaseapp.com",
+    databaseURL: "https://autentykacja-485ce-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "autentykacja-485ce",
+    storageBucket: "autentykacja-485ce.appspot.com",
+    messagingSenderId: "344754626728",
+    appId: "1:344754626728:web:208e5f84b910170332629d"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    sighUp.addEventListener('click', (e)=> {
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let user = document.getElementById('username').value;
+
+        createUserWithEmailAndPassword(auth, email, password).
+        then((userCredential) => { // Signed in 
+        const user = userCredential.user; // ...
+    })
+        .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert("errorMessage");
+        // ..
+        });
+    })
+</script>
+</html>
