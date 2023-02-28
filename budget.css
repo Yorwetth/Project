@@ -85,19 +85,6 @@ body{
     background-color: rgb(38,38,50);
     border-radius: 0 0 10% 10%;
 }
-.material-symbols-outlined{
-    color:white;
-}
-.toggle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    color:whitesmoke;
-}
-.toggle:hover{
-    cursor: pointer;
-}
 .content{
     display: grid;
     grid-template-columns: [ext_nav] 25% [main_content]auto ;
@@ -107,85 +94,67 @@ body{
 .ext_nav{
     border-right: 1px solid rgb(46, 46, 46) ;
 }
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.material-symbols-outlined{
+    color:white;
+}
+.toggle{
+    font-size: 60px;
+    color:whitesmoke;
+}
+.toggle:hover{
+    cursor: pointer;
+}
 h2{
     padding-top: 2rem;
 }
-.weather{
-    width:55%;
-    height: 25%;
-    box-shadow: 0px 0px 35px 0px rgb(0, 0, 0);
-    background-color: rgba(24, 26, 29, 0.5);
-    border-radius: 50% 20% / 10% 40%;
-    margin: 2rem auto;
-    text-align: center;
+.budget{
+    border-collapse: collapse;
+    min-width: 750px;
 }
-.weather-icon img{
-    margin-top:-0.5rem;
-    width: 100px;
-    height: 100px;
+.budget th{
+    text-align: left;
+    padding:10px 20px;
+    border-bottom:2px solid var(--main_color);
 }
-.notification{
-    display: none;
+.budget td{
+    padding:5px;
+}
+.input,
+.delete-entry{
+    height: 30px;
+    font-size: 14px;
+    padding:0 10px;
+    margin:0;
+    box-sizing: border-box;
+}
+.input{
+    border: 2px solid white;
+    border-radius:5px;
+    outline: none;
+}
+.input:focus{
+    border-color:var(--main_color)
+}
+.delete-entry{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
     background:none;
+    color:red;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
 }
-.notification p{
-    color: white;
-    font-size:1.5rem;
-    text-align: center;
-    font-weight: 600;
+.delete-entry:hover{
+    border: 2px solid var(--main_color)
 }
-
-.temperature-value p{
-    display: flex;
-    justify-content: center;
-    margin-top:-1rem;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
+.controls,
+.summary{
+    text-align: right;
 }
-.location p{
-    display: flex;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.main_content {
-    display: grid;
-    grid-template-columns: 0 repeat(2, 2fr) 0 2fr;
-    grid-template-rows: repeat(4, 1fr) 0;
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
-    padding-top:2rem;
-    }
-    
-    .div1 { 
-        grid-area: 1 / 2 / 3 / 3; 
-        background-color: rgba(24, 26, 29, 1);
-        padding:10px;
-        border-radius:2rem;
-        backdrop-filter: blur(5px);
-    }
-    .div2 { 
-        grid-area: 1 / 3 / 3 / 4; 
-        background-color: rgba(24, 26, 29, 1);
-        padding:10px;
-        border-radius:2rem;
-        backdrop-filter: blur(5px);
-    }
-    .div3 { 
-        grid-area: 1 / 5 / 5 / 6;
-        background-color: rgba(24, 26, 29, 1);
-        padding:10px;
-        border-radius:2rem;
-        backdrop-filter: blur(5px);
-    }
-    .budget { 
-        grid-area: 3 / 2 / 5 / 4; 
-        background-color: rgba(24, 26, 29, 1);
-        padding:10px;
-        border-radius:2rem;
-        backdrop-filter: blur(5px);
-    }

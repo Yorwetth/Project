@@ -67,46 +67,5 @@ function displayWeather(){
     locationElement.innerHTML = `<span class="material-symbols-outlined">
     near_me
     </span>${weather.city}, ${weather.country}`;
-
-    switch(weather.iconId){
-        case "04n": //duże chmury
-        case "04d": //duże chmury
-        case "03d": //zachmurzenie
-        case "03n": //zachmurzenie
-            bgc.style.backgroundColor="rgba(2, 53, 91, 0.9)";
-            break;
-
-        case "02d": //lekkie chmury + słońce
-            bgc.style.backgroundColor="#B1BCFE";
-            break;
-        case "02n": //lekkie chmury + księżyc
-            bgc.style.backgroundColor="#90CCFE";
-            break;
-
-        case "50d": //mgła
-            bgc.style.backgroundColor="#E2F8F8";
-            break;
-        case "13d": //śnieg
-            bgc.style.backgroundColor="#E2F8F8";
-            break;
-        case "09d": // deszcz
-            bgc.style.backgroundColor="#63C8FF";
-            break;
-        case "11d": // burza
-            bgc.style.backgroundColor="#B2C5D0";
-            break;
-        case "10d": // lekki deszcz + słońce
-            bgc.style.backgroundColor="#7CD1FF";
-            break;
-
-        case "01n": // noc
-            bgc.style.backgroundColor="#C0C1C9";
-            break;
-
-        case "01d": //dzień
-            bgc.style.backgroundColor="#FFC889";
-            break;
-    }
-
-
+    bgc.style.backgroundColor="rgba(2, 53, 91, 0.9)";
 }   
