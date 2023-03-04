@@ -90,15 +90,21 @@ body{
 .material-symbols-outlined{
     color:white;
 }
+.LogOut{
+    text-decoration: none;
+}
 .toggle{
     display: flex;
+    height: 100%;
     align-items: center;
     justify-content: center;
-    font-size: 60px;
+    font-size: 40px;
+    text-decoration:none;
     color:whitesmoke;
 }
 .toggle:hover{
     cursor: pointer;
+    color:var(--main_color);
 }
 .content{
     display: grid;
@@ -212,3 +218,4 @@ h2{
         box-shadow: var(--main_color) 0px 0px 1.5rem 1px;
         background-color: rgba(24, 26, 29, 0.7);
     }
+    
