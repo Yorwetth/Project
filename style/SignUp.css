@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@800&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg_purple:rgb(51, 0, 51);
+    --bg_blue:rgb(9, 0, 73);
+    --bg_red:rgb(107, 7, 7);
+    --bg_grey:rgba(32,32,46, 1);
+    --main_color:rgb(111, 27, 194);
+}
+body{
+    font-family:'Times New Roman', Times, serif;
+    width:100vw;
+    height: 100vh;
+    background: 
+    linear-gradient(215deg, var(--bg_purple), rgba(0, 0, 0, 0.4) 75%),
+    linear-gradient(135deg, var(--bg_blue), rgba(0, 0, 0, 0.4) 75%),
+    linear-gradient(360deg, var(--bg_red), rgba(0, 0, 0, 0.4) 75%);
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+.main-content{
+    width:70%;
+    height: 80%;
+    background: var(--bg_grey);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 4rem 1px;
+    border-radius:2rem;
+    backdrop-filter: blur(5px);
+    overflow:hidden;
+}
+
+.kontener{
+    position:relative;
+    display: grid;
+    grid-template-columns:[lewo]50% [prawo]50%;
+    text-align: center;
+    height: 100%;
+}
+.lewo,
+.prawo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.lewo-content, 
+.prawo-content{
+    margin-top:-15%;
+    opacity:1;
+    transition: 2s;
+}
+#overlay{
+    transition: 0.8s;
+    position:absolute;
+    top:0;
+    height:100%;
+    width:50%;
+    background: var(--main_color);
+    
+}
+.void{
+    opacity:0;
+}
+.active{
+    transform:translateX(100%);
+}
+
+
+.reg-logo{
+    width: 220px;
+    height: 220px;
+}
+.input-div{
+    position: relative;
+    display:grid;
+    grid-template-columns:7% 100%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #fff;
+    width: 350px;
+}
+
+.i{
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .5s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 50px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: var(--main_color);
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: var(--main_color);
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+}
+
+  button {
+    position: relative;
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 40px;
+    border:none;
+    outline: none;
+  }
+  button span {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    font-family: Arial;
+    letter-spacing: 8px;
+    z-index: 1;
+  }
+  
+  button .liquid {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: var(--main_color);
+    transition: .5s;
+  }
+  
+  button .liquid::after,
+  button .liquid::before {
+    content: '';
+    width: 210%;
+    height: 210%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+  
+  button .liquid::before {
+    border-radius: 45%;
+    background: rgba(20, 20, 20, 1);
+    animation: animate 5s linear infinite;
+  }
+  
+  button .liquid::after {
+    
+    border-radius: 40%;
+    background: rgba(20, 20, 20, .5);
+    animation: animate 10s linear infinite;
+  }
+  
+    button:hover .liquid{
+    top: -120px;
+    cursor: pointer;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -75%) rotate(360deg);
+    }
+  }

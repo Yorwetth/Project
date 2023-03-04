@@ -6,74 +6,295 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- ikona google fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> 
-
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
-<link rel="stylesheet" href="SignUp.css">
+    <!-- <link rel="stylesheet" href="SignUp.css"> -->
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="style/SignUp.css">
 </head>
-<body>
-    <div class="main-content">
-        <section class="panel">
-            <header class="header">
-                <h1 class="dwa">Alpha-Mind</h1>
-                <p class="logo-subtext">Czysta wydajność</p>
-            </header>
-        </section>
-        <section class="content">
-            <div id="login-box">
-                <div class="left">
-                    <h1 id='status'>login</h1>
-                    <input type="text" id="email" name="email" placeholder="E-mail" />
-                    <input type="password" id="password" name="password" placeholder="Password" />
-                    <input type="submit" id='login' name="login" value="Login" />
+<div class="main-content">
+    <div class="kontener">
+    <div class="lewo">
+        <div class="lewo-content void">
+            <form action="index.html">
+				<img src="icons/test.svg" class="reg-logo">
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div focus">
+           		   		<h5>Username</h5>
+           		   		<input type="text" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" class="input">
+            	   </div>
                 </div>
+                <button>
+                    <span>Sign Up</span>
+                    <div class="liquid"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="prawo">
+        <div class="prawo-content">
+            <form action="index.html">
+				<img src="icons/test.svg" class="reg-logo">
+           		<div class="input-div">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div focus">
+           		   		<h5>Username</h5>
+           		   		<input type="text" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" class="input">
+            	   </div>
+                </div>
+                <button>
+                    <span>Sign Up</span>
+                    <div class="liquid"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div id="overlay" class="basic">
+        <button id="btn">Kliknij!</button>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+    <!-- <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>Create Account</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div> --> 
+            <!-- <span>or use your email for registration</span>
+            <div class="infield">
+                <input type="text" placeholder="Name" />
+                <label></label>
+            </div>
+            <div class="infield">
+                <input type="email" placeholder="Email" name="email"/>
+                <label></label>
+            </div>
+            <div class="infield">
+                <input type="password" placeholder="Password" />
+                <label></label>
+            </div>
+            <button>Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Sign in</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div> -->
+            <!-- <span>or use your account</span>
+            <div class="infield">
+                <input type="email" placeholder="Email" name="email"/>
+                <label></label>
+            </div>
+            <div class="infield">
+                <input type="password" placeholder="Password" />
+                <label></label>
+            </div>
+            <a href="#" class="forgot">Forgot your password?</a>
+            <button>Sign In</button>
+        </form>
+    </div>
+    <div class="overlay-container" id="overlayCon">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button>Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button>Sign Up</button>
+            </div>
+        </div>
+        <button id="overlayBtn"></button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id="login-box">
+                <label for="email">Email</label>
+                <input type="text" placeholder="Entry Email" name="email" id="email" reguired>
+
+                <label for="email">Password</label>
+                <input type="password" placeholder="Password" name="psw" id="psw" reguired>
+
+                <button type="button" id="submitData" name="submitData" class="registerbtn">Register</button>
             </div>
         </section>
     </div>
-</body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-    apiKey: "AIzaSyB7vDHyBRcjpnVzRvC6oYBv670s4CZUfMY",
-    authDomain: "autentykacja-485ce.firebaseapp.com",
-    databaseURL: "https://autentykacja-485ce-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "autentykacja-485ce",
-    storageBucket: "autentykacja-485ce.appspot.com",
-    messagingSenderId: "344754626728",
-    appId: "1:344754626728:web:208e5f84b910170332629d"
-    };
-    
-    // Initialize Firebase
+    <script type="module">
+        import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB7vDHyBRcjpnVzRvC6oYBv670s4CZUfMY",
+            authDomain: "autentykacja-485ce.firebaseapp.com",
+            databaseURL: "https://autentykacja-485ce-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "autentykacja-485ce",
+            storageBucket: "autentykacja-485ce.appspot.com",
+            messagingSenderId: "344754626728",
+            appId: "1:344754626728:web:208e5f84b910170332629d"
+        };
+
     const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
     const auth = getAuth();
+    const database = getDatabase(app);
 
-    sighUp.addEventListener('click', (e)=> {
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
-        let user = document.getElementById('username').value;
+    submitData.addEventListener('click', (e) => {
 
-        createUserWithEmailAndPassword(auth, email, password).
-        then((userCredential) => { // Signed in 
-        const user = userCredential.user; // ...
-    })
-        .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('psw').value;
 
-        alert("errorMessage");
-        // ..
+        //sign up user
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                // ... user.uid
+                set(ref(database, 'users/' + user.uid), {
+                    email: email,
+                    password: password
+                })
+                    .then(() => {
+                        // Data saved successfully!
+                        alert('user created successfully');
+        
+                    })
+                    .catch((error) => {
+                        // The write failed...
+                        alert(error);
+                    });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                alert(errorMessage);
+            });
+
+        // log in user
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                // ...
+
+                // save log in details into real time database
+                var lgDate = new Date();
+                update(ref(database, 'users/' + user.uid), {
+                    last_login: lgDate,
+                })
+                    .then(() => {
+                        // Data saved successfully!
+                        alert('user logged in successfully');
+
+                    })
+                    .catch((error) => {
+                        // The write failed...
+                        alert(error);
+                    });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+
+        signOut(auth).then(() => {
+               // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
         });
+    });
+
+</script> -->
+<script>
+    let overlayBtn = document.getElementById('btn');
+    let overlay = document.getElementById('overlay');
+    let lewo = document.querySelector('.lewo-content');
+    let prawo = document.querySelector('.prawo-content');
+
+    overlayBtn.addEventListener('click', function(){
+        overlay.classList.toggle('active');
+        lewo.classList.toggle('void');
+        prawo.classList.toggle('void');
+        ;
     })
+    const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+	let parent = this.parentNode.parentNode;
+	parent.classList.add("focus");
+}
+
+function remcl(){
+	let parent = this.parentNode.parentNode;
+	if(this.value == ""){
+		parent.classList.remove("focus");
+	}
+}
+
+
+inputs.forEach(input => {
+	input.addEventListener("focus", addcl);
+	input.addEventListener("blur", remcl);
+});
 </script>
+</body>
 </html>
