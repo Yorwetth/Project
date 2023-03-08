@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- ikona home -->
+    <!-- System kodowania pojedynczych znaków -->
+    <meta charset="UTF-8" />
+    <!-- Optymalizacja strony na urządzenia mobilne -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Tytuł strony -->
+    <title>AlphaMind | Pure Quality</title>
+    <!-- Opis witryny -->
+    <meta name="description" content="AlphaMind jako narzędzie przyszłości w organizacji czasu teraz. Przenieś notatki, kalendarze czy w jedno miejsce. Zorganizuj swoje obowiązki i plany, aby mieć czas na wszystko."/>
+    <!-- Słowa kluczowe -->
+    <meta name="keywords" content="AlphaMind, organizacja, organizer, kalendarz, plan, planer, dzien, harmonogram, rozwój, umysł, obowiązki, progress"/>
+    <!-- Autor -->
+    <meta name="author" content="Patryk Kasprowicz"/>
+    <!-- Indeksowanie dla robota google -->
+    <meta name="robots" content="index, follow"/>
+    <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> 
-
-
-    <script type="module" src="Scripts/budget.js"></script>
-    <link rel="stylesheet" href="budget.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style/budget.css">
 </head>
 <body>
     <div class="main-content">
@@ -29,7 +36,7 @@
                     </li>
                     <li class="nav_item">
                         <a href="Index.html" class="a_item">
-                            Home
+                            Kontakty
                         </a>
                     </li>
                     <li class="nav_item">
@@ -39,28 +46,38 @@
                     </li>
                     <li class="nav_item">
                         <a href="Index.html" class="a_item">
-                            Kontakt
+                            Support
                         </a>
                     </li>
                 </ul>
             </nav>
-            <li class="nav_item btn">                            
-                <input type="checkbox" id="check" class="toggle">
-                <label for="check"></label>
-            </li>
+            <a href="#" class="LogOut">
+                <span class="material-symbols-outlined toggle">
+                    logout
+                </span>
+            </a> 
         </section>
         <section class="content">
             <aside class="ext_nav">
                 <header>
                     <h2>
-                        Dziennik wydatków
+                        Notatki
                     </h2>
                 </header>
+                <div class="note-list-item selected-note">
+                    <div class="note-titles">test</div>
+                    <div class="note-bodys">test test test test</div>
+                    <div class="note-dates">Poniedziałek 20.03.2023</div>
+                </div>
             </aside>
-            <main id="app">
-
-            </main>
+            <div class="note-container">
+                    <input class="note-title" type="text" placeholder="Napisz tytłu">
+                    <textarea class="note-body"></textarea>
+                    <button class="note-btn">Add Note</button>
+            </div>
         </section>
     </div>
+    <script src="Scripts/notesDB.js" type="module"></script>
+    <script src="Scripts/LogStatus.js" type="module"></script>
 </body>
 </html>
