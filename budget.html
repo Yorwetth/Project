@@ -64,17 +64,17 @@
                         Notatki
                     </h2>
                 </header>
-                <div class="note-list-item selected-note">
+                <div class="note-list-item">
                     <div class="note-titles">test</div>
-                    <div class="note-bodys">test test test test</div>
+                    <div class="note-bodys">test test test test test test test testtest test test test</div>
                     <div class="note-dates">Poniedziałek 20.03.2023</div>
                 </div>
             </aside>
-            <div class="note-container">
-                    <input class="note-title" type="text" placeholder="Napisz tytłu">
-                    <textarea class="note-body"></textarea>
-                    <button class="note-btn">Add Note</button>
-            </div>
+            <form class="note-container">
+                <input class="note-title" type="text" placeholder="Tytuł" name="title" required>
+                <textarea class="note-body" name="text-body" required></textarea>
+                <submit class="note-btn">Add Note</submit>
+            </form>
         </section>
     </div>
     <script src="Scripts/notesDB.js" type="module"></script>

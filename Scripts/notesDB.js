@@ -1,6 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
-import {getAuth } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
+import { getFirestore, collection, getDocs, addDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
 
 const firebaseConfig = {
     apiKey: "AIzaSyB7vDHyBRcjpnVzRvC6oYBv670s4CZUfMY",
@@ -15,27 +14,34 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-try {
-    const docRef = await addDoc(collection(db, "Note"), {
-      Description: "Ada",
-      Time: "Lovelace",
-      Title: "tak"
-    });
-    console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-    console.error("Error adding document: ", e);
-}
-
 const colRef = collection(db,'Note');
+// const washingtonRef = doc(db, "cities", "DC"); //update doc
 
-getDocs(colRef)
-.then((snapshot) => {
-    let books = []
-    snapshot.docs.forEach((doc)=>{
-        books.push({...doc.data(), id: doc.id})
+//wypisywanie dokumentu
+const querySnapshot = await getDocs(collection(db, "Note"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data().Title);
+    console.log(doc.id, " => ", doc.data().Descritpion);
+});
+
+//dodawanie poprzez formularz
+const addNote = document.querySelector('.note-container');
+const addBtn = document.querySelector('.note-btn');
+addBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+
+    if(addNote.title.value && addNote['text-body'].value != null){
+
+    addDoc(colRef,{
+        Title: addNote.title.value,
+        Descritpion: addNote['text-body'].value
     })
-    console.log(books)
-})
-.catch(err =>{
-    console.log(err.message)
-})
+    .then(()=>{
+        addNote.reset();
+    });
+}
+else{
+    alert("dodaj treść");
+}
+});

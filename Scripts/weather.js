@@ -67,5 +67,5 @@ function displayWeather(){
     locationElement.innerHTML = `<span class="material-symbols-outlined">
     near_me
     </span>${weather.city}, ${weather.country}`;
-    bgc.style.backgroundColor="rgba(2, 53, 91, 0.9)";
+    bgc.style.backgroundColor="#2E0F38";
 }   

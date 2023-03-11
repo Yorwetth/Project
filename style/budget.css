@@ -34,7 +34,7 @@ body{
     background: var(--bg_grey);
     box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 4rem 1px;
     border-radius:2rem;
-    padding: 0rem 2rem 1rem 2rem;
+    padding: 0rem 1rem 1rem 1rem;
     backdrop-filter: blur(5px);
 }
 .panel{
@@ -47,19 +47,17 @@ body{
 }
 .dwa{
     margin-top: -1rem;
-    margin-left:-2rem;
     font-family: 'Cairo Play', cursive;
     font-size: 3.5rem;
     font-weight: bold;
-    text-shadow: 5px 5px 5px var(--main_color);
+    text-shadow: 5px 5px 10px var(--main_color);
 }
 .logo-subtext{
     font-size: 1.5rem;
     color: var(--main_color);
     font-family: 'Courier New';
     font-weight: bold;
-    padding-left:60px;
-    margin-top:-25px;
+    margin: -25px 0px 0px 80px;
 }
 .navigation{
     display: flex;
@@ -115,10 +113,6 @@ h2{
     margin: 1rem 0rem;
 }
 
-
-
-
-
 .note-container{
     display: flex;
     flex-direction: column;
@@ -129,54 +123,67 @@ h2{
     outline: none;
     font-size: 1.5rem;
     font-weight: bold;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.4);
     border-radius: 15px;
     padding:15px;
     width: 50%;
     margin: 2rem;
     color:white;
+    border: 2px solid transparent;
+}
+.note-title:focus{
+    border: 2px solid var(--main_color);
+    background: rgba(0,0,0,0.7);
 }
 .note-body{
     padding:20px;
-    width: 95%;
     height:100%;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.4);
     border-radius: 25px;
     margin: 0rem 2rem;
-    border: none;
     outline: none;
     color:white;
     resize: none;
     font-family:'Times New Roman', Times, serif;
     font-size: 1rem;
+    border: 2px solid transparent;
+}
+.note-body:focus{
+    border: 2px solid var(--main_color);
+    background: rgba(0,0,0,0.7);
 }
 .note-btn{
-    background: var(--main_color);
+    border: 3px solid var(--main_color);
+    background: transparent;
+    text-transform: uppercase;
     border-radius: 20px;
-    color: #ffffff;
+    color: var(--main_color);
     cursor: pointer;
     font-size: 25px;
     font-weight: bold;
     padding:15px;
     width: 200px;
     margin-bottom: 15px;
-    border:none;
     transition:0.2s;
     margin: 20px auto;
 }
 .note-btn:hover{
     filter: brightness(1.5);
+    box-shadow: 0px 0px 15px 0px rgb(123, 58, 190);
 }
+
 .note-list-item{
-    cursor: pointer;
-    height: 120px;
-    margin:5px 0;
-    margin-right: 2rem;
-}
-.selected-note{
-    background: rgba(0,0,0,0.3);
+    background-color: #2E0F38;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
     border-radius: 15px;
     font-weight: bold;
+    transition:0.2s;
+    overflow: hidden;
+    height: 110px;
+    margin:20px;
+}
+.note-list-item:hover{
+    filter: brightness(1.4);
 }
 .note-titles{
     padding:5px;
@@ -186,18 +193,17 @@ h2{
     text-align: center;
 }
 .note-bodys{
-    padding:5px 10px;
+    padding:0px 10px 5px 10px;
     font-size: 18px;
     height:50px;
     overflow: hidden;
     text-align: left;
 }
 .note-dates{
-    padding:5px 10px;
+    padding:0px 10px;
     height:30px;
-    overflow: hidden;
     color: rgb(175, 169, 169);
     font-style: italic;
     text-align: right;
-    font-size: 13px;
+    font-size: 12px;
 }
