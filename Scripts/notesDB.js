@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
-import { getFirestore, collection, getDocs, addDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
+import { getFirestore, collection, onSnapshot, addDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
 
 const firebaseConfig = {
     apiKey: "AIzaSyB7vDHyBRcjpnVzRvC6oYBv670s4CZUfMY",
@@ -18,12 +18,30 @@ const colRef = collection(db,'Note');
 // const washingtonRef = doc(db, "cities", "DC"); //update doc
 
 //wypisywanie dokumentu
-const querySnapshot = await getDocs(collection(db, "Note"));
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data().Title);
-    console.log(doc.id, " => ", doc.data().Descritpion);
-});
+// const querySnapshot = await getDocs(collection(db, "Note"));
+// querySnapshot.forEach((doc) => {
+//   // doc.data() is never undefined for query doc snapshots
+//     console.log(doc.id, " => ", doc.data().Title);
+//     console.log(doc.id, " => ", doc.data().Descritpion);
+// });
+const ext = document.querySelector('.ext_nav');
+
+function addSmallList(){
+    const div = document.createElement('div');
+    div.classList.add('note-list-item');
+    ext.appendChild(div);
+    return div;
+}
+//realtime collection
+onSnapshot(colRef, (snapshot) => {
+    let note = []
+    snapshot.docs.forEach((doc) =>{
+        note.push([...doc.data(), id.doc.id])
+    })
+    console.log(note)
+})
+
+
 
 //dodawanie poprzez formularz
 const addNote = document.querySelector('.note-container');
@@ -32,16 +50,14 @@ addBtn.addEventListener('click',(e)=>{
     e.preventDefault();
 
     if(addNote.title.value && addNote['text-body'].value != null){
+        addDoc(colRef,{
+            Title: addNote.title.value,
+            Descritpion: addNote['text-body'].value
+        }).then(()=>{
+            addNote.reset();
+        })}
 
-    addDoc(colRef,{
-        Title: addNote.title.value,
-        Descritpion: addNote['text-body'].value
-    })
-    .then(()=>{
-        addNote.reset();
-    });
-}
-else{
-    alert("dodaj treść");
-}
+    else{
+        alert("dodaj treść");
+    }
 });
