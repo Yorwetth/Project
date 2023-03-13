@@ -83,6 +83,8 @@ const subBtn1 = document.querySelector('.submitData1').addEventListener('click',
             alert(errorMessage);
         });
 });
+
+
 onAuthStateChanged(auth, (user) => {
     if (user !== null) {
         setTimeout("location.href = 'Index.html';",1500);

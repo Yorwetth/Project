@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
-import { getFirestore, collection, onSnapshot, addDoc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
+import { getFirestore, collection, onSnapshot, addDoc, updateDoc, setDoc, doc, query, where, orderBy, serverTimestamp, getDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
 
 const firebaseConfig = {
     apiKey: "AIzaSyB7vDHyBRcjpnVzRvC6oYBv670s4CZUfMY",
@@ -26,17 +26,48 @@ const colRef = collection(db,'Note');
 // });
 const ext = document.querySelector('.ext_nav');
 
-function addSmallList(){
+function addElement(doc){
     const div = document.createElement('div');
     div.classList.add('note-list-item');
-    ext.appendChild(div);
-    return div;
+
+    let divTitle = document.createElement('div');
+    divTitle.classList.add('note-titles');
+
+    let divBody = document.createElement('div');
+    divBody.classList.add('note-bodys');
+
+    let divDate = document.createElement('div');
+    divDate.classList.add('note-dates');
+
+    div.setAttribute('data-id', doc.id);
+    divTitle.textContent = doc.data().Title;
+    divBody.textContent = doc.data().Descritpion;
+    divDate.textContent = doc.data().Time;
+
+
+    div.appendChild(divTitle);
+    div.appendChild(divBody);
+    div.appendChild(divDate);
+
+    ext.appendChild(div)
+
 }
-//realtime collection
-onSnapshot(colRef, (snapshot) => {
+colRef.get().then((snapshot)=>{
+        snapshot.docs.forEach(doc =>{
+            addElement(doc);
+        })
+    })
+
+//queries
+const q = query(colRef,orderBy('Time'))
+
+
+
+// //realtime collection
+onSnapshot(q,(snapshot) => {
     let note = []
     snapshot.docs.forEach((doc) =>{
-        note.push([...doc.data(), id.doc.id])
+        note.push({...doc.data(), id:doc.id})
     })
     console.log(note)
 })
@@ -52,12 +83,24 @@ addBtn.addEventListener('click',(e)=>{
     if(addNote.title.value && addNote['text-body'].value != null){
         addDoc(colRef,{
             Title: addNote.title.value,
-            Descritpion: addNote['text-body'].value
+            Descritpion: addNote['text-body'].value,
+            Time: serverTimestamp()
         }).then(()=>{
             addNote.reset();
+            console.log('dodano treść');
         })}
 
     else{
         alert("dodaj treść");
     }
 });
+
+//weź pojedynczy dokument
+const docRef = doc(db, 'Note','8QzcFtqeEYFZeprEsSvi');
+
+onSnapshot(docRef, (doc) =>{
+    console.log(doc.data(), doc.id)
+})
+
+//aktualizacja dokumentu
+// const updateForm = document.querySelector('.')

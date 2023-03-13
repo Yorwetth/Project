@@ -4,7 +4,7 @@
     --bg_blue:rgb(9, 0, 73);
     --bg_red:rgb(107, 7, 7);
     --bg_grey:rgba(32,32,46, 1);
-    --main_color:rgb(111, 27, 194);
+    --main_color:rgb(123, 58, 190);
 }
 *{
     margin:0;
@@ -36,7 +36,6 @@ body{
     border-radius:2rem;
     padding: 0rem 1rem 1rem 1rem;
     backdrop-filter: blur(5px);
-    overflow:hidden;
 }
 .panel{
     display: grid;
@@ -70,11 +69,11 @@ body{
 .a_item{
     display: block;
     margin-top:-0.5rem;
-    font-size:1.6rem;
+    font-size:1.5rem;
     text-decoration: none;
     color: white;
     padding:30px 40px;
-    transition:0.2s;
+    transition: 300ms;
     border-top: 5px solid transparent;
     font-weight: 600;
 }
@@ -83,11 +82,6 @@ body{
     color: var(--main_color);
     background-color: rgb(38,38,50);
     border-radius: 0 0 10% 10%;
-    
-}
-.material-symbols-outlined{
-    color:white;
-    padding:0px 5px;
 }
 .LogOut{
     text-decoration: none;
@@ -110,4 +104,106 @@ body{
     grid-template-columns: [ext_nav] 25% [main_content]auto ;
     border-top: 2px solid rgb(46, 46, 46) ;
     padding: 0.5rem 0;
+}
+.ext_nav{
+    border-right: 1px solid rgb(46, 46, 46) ;
+}
+
+h2{
+    margin: 1rem 0rem;
+}
+
+.note-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.note-title{
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: rgba(0,0,0,0.4);
+    border-radius: 15px;
+    padding:15px;
+    width: 50%;
+    margin: 2rem;
+    color:white;
+    border: 2px solid transparent;
+}
+.note-title:focus{
+    border: 2px solid var(--main_color);
+    background: rgba(0,0,0,0.7);
+}
+.note-body{
+    padding:20px;
+    height:100%;
+    background: rgba(0,0,0,0.4);
+    border-radius: 25px;
+    margin: 0rem 2rem;
+    outline: none;
+    color:white;
+    resize: none;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1rem;
+    border: 2px solid transparent;
+}
+.note-body:focus{
+    border: 2px solid var(--main_color);
+    background: rgba(0,0,0,0.7);
+}
+.note-btn{
+    border: 3px solid var(--main_color);
+    background: transparent;
+    text-transform: uppercase;
+    border-radius: 20px;
+    color: var(--main_color);
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    padding:15px;
+    width: 200px;
+    margin-bottom: 15px;
+    transition:0.2s;
+    margin: 20px auto;
+}
+.note-btn:hover{
+    filter: brightness(1.5);
+    box-shadow: 0px 0px 15px 0px rgb(123, 58, 190);
+}
+
+.note-list-item{
+    background-color: #2E0F38;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+    border-radius: 15px;
+    font-weight: bold;
+    transition:0.2s;
+    overflow: hidden;
+    height: 110px;
+    margin:20px;
+}
+.note-list-item:hover{
+    filter: brightness(1.4);
+}
+.note-titles{
+    padding:5px;
+    height:40px;
+    font-size: 26px;
+    overflow: hidden;
+    text-align: center;
+}
+.note-bodys{
+    padding:0px 10px 5px 10px;
+    font-size: 18px;
+    height:50px;
+    overflow: hidden;
+    text-align: left;
+}
+.note-dates{
+    padding:0px 10px;
+    height:30px;
+    color: rgb(175, 169, 169);
+    font-style: italic;
+    text-align: right;
+    font-size: 12px;
 }
