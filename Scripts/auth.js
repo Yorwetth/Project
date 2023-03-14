@@ -30,7 +30,8 @@ const subBtn = document.querySelector('.submitData').addEventListener('click', (
             // ... user.uid
             set(ref(database, 'users/' + user.uid), {
                 email: email,
-                password: password
+                password: password,
+                uid: user.uid
             })
                 .then(() => {
                     // Data saved successfully!

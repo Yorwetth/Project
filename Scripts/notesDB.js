@@ -1,4 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 import { getFirestore, collection, onSnapshot, addDoc, updateDoc, setDoc, doc, query, where, orderBy, serverTimestamp, getDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"; 
 
 const firebaseConfig = {
@@ -11,10 +12,14 @@ const firebaseConfig = {
     appId: "1:344754626728:web:208e5f84b910170332629d"
 };
 
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth();
 const colRef = collection(db,'Note');
+
+const uid = auth.uid;
+console.log(uid);
+
 // const washingtonRef = doc(db, "cities", "DC"); //update doc
 
 //wypisywanie dokumentu
@@ -24,39 +29,32 @@ const colRef = collection(db,'Note');
 //     console.log(doc.id, " => ", doc.data().Title);
 //     console.log(doc.id, " => ", doc.data().Descritpion);
 // });
-const ext = document.querySelector('.ext_nav');
+// const ext = document.querySelector('.ext_nav');
 
-function addElement(doc){
-    const div = document.createElement('div');
-    div.classList.add('note-list-item');
+// function addElement(doc){
+//     const div = document.createElement('div');
+//     div.classList.add('note-list-item');
 
-    let divTitle = document.createElement('div');
-    divTitle.classList.add('note-titles');
+//     let divTitle = document.createElement('div');
+//     divTitle.classList.add('note-titles');
 
-    let divBody = document.createElement('div');
-    divBody.classList.add('note-bodys');
+//     let divBody = document.createElement('div');
+//     divBody.classList.add('note-bodys');
 
-    let divDate = document.createElement('div');
-    divDate.classList.add('note-dates');
+//     let divDate = document.createElement('div');
+//     divDate.classList.add('note-dates');
 
-    div.setAttribute('data-id', doc.id);
-    divTitle.textContent = doc.data().Title;
-    divBody.textContent = doc.data().Descritpion;
-    divDate.textContent = doc.data().Time;
+//     div.setAttribute('data-id', doc.id);
+//     divTitle.textContent = doc.data().Title;
+//     divBody.textContent = doc.data().Descritpion;
+//     divDate.textContent = doc.data().Time;
 
 
-    div.appendChild(divTitle);
-    div.appendChild(divBody);
-    div.appendChild(divDate);
+//     div.appendChild(divTitle);
+//     div.appendChild(divBody);
+//     div.appendChild(divDate);
 
-    ext.appendChild(div)
-
-}
-colRef.get().then((snapshot)=>{
-        snapshot.docs.forEach(doc =>{
-            addElement(doc);
-        })
-    })
+//     ext.appendChild(div)
 
 //queries
 const q = query(colRef,orderBy('Time'))
@@ -79,9 +77,9 @@ const addNote = document.querySelector('.note-container');
 const addBtn = document.querySelector('.note-btn');
 addBtn.addEventListener('click',(e)=>{
     e.preventDefault();
-
     if(addNote.title.value && addNote['text-body'].value != null){
         addDoc(colRef,{
+            User: user,
             Title: addNote.title.value,
             Descritpion: addNote['text-body'].value,
             Time: serverTimestamp()
@@ -94,13 +92,6 @@ addBtn.addEventListener('click',(e)=>{
         alert("dodaj treść");
     }
 });
-
-//weź pojedynczy dokument
-const docRef = doc(db, 'Note','8QzcFtqeEYFZeprEsSvi');
-
-onSnapshot(docRef, (doc) =>{
-    console.log(doc.data(), doc.id)
-})
 
 //aktualizacja dokumentu
 // const updateForm = document.querySelector('.')
