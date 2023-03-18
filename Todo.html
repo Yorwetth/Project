@@ -58,10 +58,32 @@
             </a> 
         </section>
         <section class="content">
-            
+
+            <div class="status">
+                <div class="status-logo">Utwórz</div>
+                <input type="text" placeholder="Twoje zadanie"id="todo_input" />
+                <button id="note-btn" data-target-modal="#todo_form">Add Todo</button>
+                <div class="drop default"></div>
+            </div>
+
+            <div class="status">
+                <div class="status-logo">Do zrobienia</div>
+                <div class="drop"></div>
+            </div>
+
+            <div class="status">
+                <div class="status-logo">W trakcie</div>
+                <div class="drop"></div>
+            </div>
+
+            <div class="status">
+                <div class="status-logo">Ukończone</div>
+                <div class="drop"></div>
+            </div>
+
         </section>
     </div>
-    <script src="Scripts/.js" type="module"></script>
+    <script src="Scripts/todo.js" type="module"></script>
     <script src="Scripts/LogStatus.js" type="module"></script>
 </body>
 </html>
